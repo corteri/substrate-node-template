@@ -1,0 +1,15 @@
+[profile.release]
+panic = 'unwind'
+
+[workspace]
+members = [
+    'node',
+    'pallets/template',
+    'pallets/alioth/alioth-register',
+    'pallets/alioth/alioth-db',
+    #'pallets/alioth/alioth-register/rpc',
+    'pallets/alioth/alioth-users',
+    'pallets/alioth/alioth-class',
+    'pallets/alioth/alioth-ob',
+    'runtime',
+]

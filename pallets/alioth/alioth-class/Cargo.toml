@@ -1,0 +1,33 @@
+[package]
+name = "alioth-class"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#substrate dependencies
+frame-support = {default-features=false,version="3.0"}
+frame-system={default-features=false,version="3.0"}
+sp-runtime={default-features=false,version="3.0"}
+sp-io={default-features=false,version="3.0"}
+#sp-core = {default-feature=false,version="3.0"}
+#serde_json = { version = '1.0.45', default-features = false, features = ['alloc'] }
+alioth-register={version='0.1.0',default-features=false,path="../alioth-register"}
+alioth-db={version='0.1.0',default-features=false,path="../alioth-db"}
+parity-scale-codec = { version = "2.0", features = ["derive"], default-features = false }
+serde = { features = ['derive'],optional=true,version = '1.0.119'}
+[features]
+default=['std']
+std=[
+    'frame-support/std',
+    'frame-system/std',
+    'sp-runtime/std',
+    'sp-io/std',
+    #'sp-core/std',
+    #'serde_json/std',
+    'alioth-register/std',
+    'alioth-db/std',
+    'parity-scale-codec/std',
+    'serde',
+]

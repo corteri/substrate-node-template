@@ -1,0 +1,36 @@
+[package]
+name = "users-rpc"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "1.3.4", default-features = false, features = ["derive"] }
+serde = { features = ['derive'], optional = true, version = '1.0.119' }
+
+jsonrpc-core = '15.0.0'
+jsonrpc-core-client = '15.0.0'
+jsonrpc-derive = '15.0.0'
+
+# Local dependencies
+alioth-users={version="0.1.0",default-features=false,path="../../../alioth/alioth-users"}
+# Custom Runtime API
+alioth-users-runtime = { default-features = false, path = 'rpc-runtime'}
+
+# Substrate dependencies
+sp-api = { default-features = false, version = '3.0.0' }
+sp-blockchain = { default-features = false, version = '3.0.0' }
+sp-rpc = { default-features = false, version = '3.0.0' }
+sp-core = { default-features = false, version = '3.0.0' }
+sp-runtime = { default-features = false, version = '3.0.0' }
+
+[features]
+default = ['std']
+std = [
+  'serde',
+  'sp-runtime/std',
+  'sp-api/std',
+  'alioth-users-runtime/std',
+  'alioth-users/std',
+]
